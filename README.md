@@ -1,3 +1,5 @@
+![Logo](docs/img/PSS-Pass.png)
+
 # AAS Bridge
 
 ## Table of Contents
@@ -313,3 +315,7 @@ pulsar-admin functions status --name basyxtest --tenant public --namespace defau
 -   **Connection Loss**: Both MQTT and OPC UA sources have internal loops to attempt reconnection indefinitely (with backoff).
 -   **Publication Failure**: If Pulsar is down, the system retries 5 times (configurable).
 -   **Data Safety**: Failed messages are **never** discarded silently. They are written to the DLQ. Administrators should monitor the DLQ topic to replay or investigate failed messages.
+
+---
+
+![Footer](docs/img/footer.png)

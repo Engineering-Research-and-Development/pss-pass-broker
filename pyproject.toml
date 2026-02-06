@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mqtt_pulsar_bridge"
+version = "0.1.0"
+description = "A flexible bridge to forward messages from MQTT to Apache Pulsar."
+readme = "README.md"
+authors = [
+    { name = "Luca Landolfo", email = "luca.landolfo@eng.it" },
+]
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+]
+
+dependencies = [
+    "paho-mqtt",
+    "pulsar-client",
+    "loguru",
+    "PyYAML",
+    "tenacity",
+    "asyncua==1.1.8",
+]
+
+[tool.setuptools.packages.find]
+where = ["./"]
+include = ["src"]
+
+[tool.uv.workspace]
+members = [
+    ".venv/Scripts",
+]
+
+[project.scripts]
+bridge = "src.main:main"

@@ -1,0 +1,41 @@
+# Available levels: DEBUG, INFO, SUCCESS, WARNING, ERROR, CRITICAL
+logging:
+  level: "INFO"
+
+sources:
+  opcua:
+    enabled: true
+    server_url: "opc.tcp://host.docker.internal:4840/OPCUA/SimulationServer" #test values
+    nodes_to_subscribe:
+      - "ns=3;i=1001"
+      - "ns=3;i=1002"
+
+  mqtt:
+    enabled: true
+    broker_host: "mosquitto"
+    broker_port: 1883
+    topic_subscribe: "test/data/#"
+    client_id: "bridge-id"
+    keepalive: 60
+ 
+destinations:
+  pulsar:
+    enabled: true
+    service_url: "pulsar://broker:6650"
+    publishing:
+      retry_attempts: 5
+      dlq_topic: "persistent://public/default/pulsar-bridge-dlq"
+
+pipelines:
+  - name: "mqtt_to_pulsar"
+    # The source name must match the configuration key (es. 'mqtt')
+    source: "mqtt"
+    # Same for the destination name (es. 'pulsar')
+    destination: "pulsar"
+    
+  - name: "opcua_to_pulsar"
+    source: "opcua"
+    destination: "pulsar"
+
+heartbeat:
+  interval_seconds: 30

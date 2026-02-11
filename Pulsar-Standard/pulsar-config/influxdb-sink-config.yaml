@@ -1,0 +1,7 @@
+configs:
+  influxdbUrl: "http://influxdb:8086"
+  token: "pulsar"
+  organization: "pulsar"
+  bucket: "pulsar-bucket"
+  precision: "s"
+  logLevel: "NONE"

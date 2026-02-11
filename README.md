@@ -123,7 +123,7 @@ sources:
     client_id: "bridge-client-1"
 ```
 
-### 4.3 Destinations Configuration
+### 4.2 Destinations Configuration
 ```yaml
 destinations:
   pulsar:
@@ -134,7 +134,7 @@ destinations:
       dlq_topic: "persistent://public/default/pulsar-bridge-dlq"
 ```
 
-### 4.4 Pipelines
+### 4.3 Pipelines
 Define how data moves. You can run multiple pipelines simultaneously.
 ```yaml
 pipelines:
@@ -147,7 +147,7 @@ pipelines:
     destination: "pulsar"
 ```
 
-### 4.5 Heartbeat Configuration
+### 4.4 Heartbeat Configuration
 The bridge includes a monitoring service that periodically checks the health of active processes.
 ```yaml
 heartbeat:
@@ -193,7 +193,7 @@ The `docker-compose.yaml` orchestrates a comprehensive industrial data platform.
 ### 5.3 Installing Connectors (InfluxDB)
 To use Pulsar IO connectors (e.g., `pulsar-io-influxdb`), follow these steps:
 
-1.  **Download the Connector**: Get the `.nar` file (e.g., `pulsar-io-influxdb-4.1.1.nar`) compatible with your Pulsar version.
+1.  **Download the Connector**: Get the `.nar` file (in our case: `pulsar-io-influxdb-4.1.2.nar`) compatible with your Pulsar version from [here](https://pulsar.apache.org/download/#connectors).
 2.  **Place in Directory**: Save it to `Pulsar-Standard/connectors/`.
 3.  **Mount Volume**: Ensure your `broker` service in `docker-compose.yaml` includes the volume mount for `./connectors:/pulsar/connectors`.
 4.  **Configure the Sink**: You must also provide a configuration file (e.g., `pulsar-config/influxdb-sink-config.yaml`) defining the connection details:

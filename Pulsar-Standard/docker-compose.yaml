@@ -1,0 +1,153 @@
+services:
+  zookeeper:
+    image: apachepulsar/pulsar:4.1.2
+    container_name: zookeeper
+    restart: on-failure
+    networks:
+      - pulsar-net
+    volumes:
+      - ./data/zookeeper:/pulsar/data/zookeeper
+      - ./pulsar-config/client.conf:/pulsar/conf/client.conf:ro
+    environment:
+      - metadataStoreUrl=zk:zookeeper:2181
+      - PULSAR_MEM=-Xms256m -Xmx256m -XX:MaxDirectMemorySize=256m
+    command:
+      - bash
+      - -c 
+      - |
+        bin/apply-config-from-env.py conf/zookeeper.conf && \
+        bin/generate-zookeeper-config.sh conf/zookeeper.conf && \
+        exec bin/pulsar zookeeper    
+    healthcheck:
+      test: ["CMD", "bin/pulsar-zookeeper-ruok.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+  # Init cluster metadata
+  pulsar-init:
+    container_name: pulsar-init
+    hostname: pulsar-init
+    image: apachepulsar/pulsar:4.1.2
+    networks:
+      - pulsar-net
+    volumes:
+      - ./pulsar-config/client.conf:/pulsar/conf/client.conf:ro  
+    command:
+      - bash
+      - -c 
+      - |
+        bin/pulsar initialize-cluster-metadata \
+        --cluster pulsar-cluster \
+        --zookeeper zookeeper:2181 \
+        --configuration-store zookeeper:2181 \
+        --web-service-url http://broker:9553 \
+        --broker-service-url pulsar://broker:6650
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+
+  # Start bookie
+  bookie:
+    image: apachepulsar/pulsar:4.1.2
+    container_name: bookie
+    restart: on-failure
+    networks:
+      - pulsar-net
+    environment:
+      - clusterName=pulsar-cluster
+      - zkServers=zookeeper:2181
+      - metadataServiceUri=metadata-store:zk:zookeeper:2181
+      - advertisedAddress=bookie
+      - BOOKIE_MEM=-Xms512m -Xmx512m -XX:MaxDirectMemorySize=256m
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+      pulsar-init:
+        condition: service_completed_successfully
+    volumes:
+      - ./data/bookkeeper:/pulsar/data/bookkeeper
+      - ./pulsar-config/client.conf:/pulsar/conf/client.conf:ro
+    command: bash -c "bin/apply-config-from-env.py conf/bookkeeper.conf && exec bin/pulsar bookie"
+
+  broker:
+    image: apachepulsar/pulsar:4.1.2
+    container_name: broker
+    hostname: broker
+    restart: on-failure
+    ports:
+      - "6650:6650"
+      - "9553:9553"
+    networks:
+      - pulsar-net
+    volumes:
+      - ./pulsar-config/client.conf:/pulsar/conf/client.conf:ro
+      - ./pulsar-resources:/pulsar/resources:ro
+    environment:
+      - metadataStoreUrl=zk:zookeeper:2181
+      - zookeeperServers=zookeeper:2181
+      - clusterName=pulsar-cluster
+      - managedLedgerDefaultEnsembleSize=1
+      - managedLedgerDefaultWriteQuorum=1
+      - managedLedgerDefaultAckQuorum=1
+      - functionsWorkerEnabled=true
+      - webServicePort=9553
+      - advertisedAddress=broker
+      - PULSAR_MEM=-Xms512m -Xmx512m -XX:MaxDirectMemorySize=256m
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+      bookie:
+        condition: service_started
+    command: bash -c "bin/apply-config-from-env.py conf/broker.conf && exec bin/pulsar broker"
+  
+  dekaf:
+    image: visortelle/dekaf:1.0.0
+    container_name: dekaf
+    restart: unless-stopped
+    environment:
+      DEKAF_PULSAR_WEB_URL: "http://broker:9553"
+      DEKAF_PULSAR_BROKER_URL: "pulsar://broker:6650"
+    ports:
+      - "8090:8090"
+    networks:
+      - pulsar-net
+    depends_on:
+      - broker
+
+  mosquitto:
+    image: eclipse-mosquitto:2.0.22
+    container_name: mosquitto
+    hostname: mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto:/etc/mosquitto
+      - ./mosquitto:/mosquitto/config:rw
+    networks:
+      - pulsar-net
+    restart: unless-stopped
+    
+  influxdb:
+    image: influxdb:2.7.12
+    container_name: influxdb
+    restart: on-failure
+    networks:
+      - pulsar-net
+    ports:
+      - "8086:8086"
+    volumes:
+      - ./data/influxdb:/var/lib/influxdb2
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=pulsar
+      - DOCKER_INFLUXDB_INIT_PASSWORD=pulsarpwd
+      - DOCKER_INFLUXDB_INIT_ORG=pulsar
+      - DOCKER_INFLUXDB_INIT_BUCKET=pulsar-bucket
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=my-super-secret-auth-token
+    
+networks:
+  pulsar-net:
+    driver: bridge
+    name: pulsar-net

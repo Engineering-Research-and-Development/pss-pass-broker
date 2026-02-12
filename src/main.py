@@ -12,14 +12,14 @@ from src.destinations.pulsar import PulsarDestination
 
 def create_parser():
     parser = argparse.ArgumentParser(
-        description="Bridge-MQTT-Pulsar",
+        description="PSS-Pass-Broker",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
 
     parser.add_argument(
         "--config",
         type=str,
-        default="./config.yaml",
+        default="src/config.yaml",
         metavar="FILE",
         help="YAML config file",
     )
@@ -28,7 +28,7 @@ def create_parser():
 
 
 def load_config(path: str):
-    config_path = os.path.join(os.getcwd(), path)
+    config_path = os.path.abspath(path)
 
     try:
         with open(config_path, "r") as f:
@@ -103,8 +103,8 @@ def main():
 
     unique_destinations = list(set(pipelines.values()))
 
-    bridge = Orchestrator(sources, pipelines, unique_destinations)
-    bridge.run()
+    broker = Orchestrator(sources, pipelines, unique_destinations)
+    broker.run()
 
 
 if __name__ == "__main__":

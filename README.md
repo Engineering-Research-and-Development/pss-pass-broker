@@ -1,6 +1,6 @@
 ![Logo](docs/img/PSS-Pass.png)
 
-# AAS Bridge
+# PSS-PASS-Broker
 
 ## Table of Contents
 1. [Introduction](#1-introduction)
@@ -9,13 +9,14 @@
 4. [Configuration Reference](#4-configuration-reference)
 5. [Deployment Guide](#5-deployment-guide)
 6. [Apache Pulsar & Data Processing](#6-apache-pulsar--data-processing)
-7. [Error Handling & Reliability](#7-error-handling--reliability)
+7. [Running the Broker](#7-running-the-broker)
+8. [Error Handling & Reliability](#8-error-handling--reliability)
 
 ---
 
 ## 1. Introduction
 
-This project implements a modular bridge to integrate industrial communication protocols, specifically **MQTT** and **OPC UA**, into a unified **Apache Pulsar** event streaming backbone.
+This project implements a modular broker to integrate industrial communication protocols, specifically **MQTT** and **OPC UA**, into a unified **Apache Pulsar** event streaming backbone.
 
 ![System Overview](docs/img/overview.png)
 
@@ -27,7 +28,7 @@ By decoupling data ingestion (Sources) from data distribution (Destinations) and
 
 ## 2. System Architecture
 
-The bridge operates on a **Pipeline** architecture. Each pipeline connects a specific **Source** (data producer) to a **Destination** (data consumer) via an internal standardization layer.
+The broker operates on a **Pipeline** architecture. Each pipeline connects a specific **Source** (data producer) to a **Destination** (data consumer) via an internal standardization layer.
 
 ### 2.1 Data Flow Architecture
 
@@ -88,7 +89,7 @@ Sources connect to industrial devices and listen for changes.
 -   **Features**:
     -   **Dynamic Producer Creation**: Producers are created on-the-fly based on the incoming topic/node.
     -   **Resilience (Tenacity)**: Implements exponential backoff for connection and publication retries.
-    -   **Dead Letter Queue (DLQ)**: If a message fails to publish after max retries, it is routed to a dedicated DLQ topic (`pulsar-bridge-dlq`) with metadata describing the failure reason, ensuring zero data loss.
+    -   **Dead Letter Queue (DLQ)**: If a message fails to publish after max retries, it is routed to a dedicated DLQ topic (`pulsar-broker-dlq`) with metadata describing the failure reason, ensuring zero data loss.
 
 ### 3.3 Orchestrator & Heartbeat
 -   **Orchestrator**: Parses the `pipelines` config and initializes the required Source-Destination pairs.
@@ -120,7 +121,7 @@ sources:
     broker_host: "mosquitto"
     broker_port: 1883
     topic_subscribe: "factory/machines/#"
-    client_id: "bridge-client-1"
+    client_id: "broker-client-1"
 ```
 
 ### 4.2 Destinations Configuration
@@ -131,29 +132,29 @@ destinations:
     service_url: "pulsar://broker:6650" # pulsar docker container
     publishing:
       retry_attempts: 5
-      dlq_topic: "persistent://public/default/pulsar-bridge-dlq"
+      dlq_topic: "persistent://public/default/pulsar-broker-dlq"
 ```
 
 ### 4.3 Pipelines
 Define how data moves. You can run multiple pipelines simultaneously.
 ```yaml
 pipelines:
-  - name: "mqtt_flow"
+  - name: "mqtt_to_pulsar"
     source: "mqtt"
     destination: "pulsar"
     
-  - name: "opcua_flow"
+  - name: "opcua_to_pulsar"
     source: "opcua"
     destination: "pulsar"
 ```
 
 ### 4.4 Heartbeat Configuration
-The bridge includes a monitoring service that periodically checks the health of active processes.
+The broker includes a monitoring service that periodically checks the health of active processes.
 ```yaml
 heartbeat:
   interval_seconds: 30
 ```
-- **interval_seconds**: Defines how often the bridge validates the status of internal threads and connections. Increasing this value reduces logging noise, while decreasing it allows for faster detection of failures.
+- **interval_seconds**: Defines how often the broker validates the status of internal threads and connections. Increasing this value reduces logging noise, while decreasing it allows for faster detection of failures.
 
 ---
 
@@ -170,9 +171,10 @@ Pulsar-Standard/
 ├── pulsar-config/
 │   └── client.conf          # Pulsar client settings
 ├── connectors/              # Pulsar IO Connectors (NAR files)
-│   └── pulsar-io-influxdb-4.1.1.nar
+│   └── pulsar-io-influxdb-4.1.2.nar
 ├── data/                    # Persistent storage (Zookeeper, Bookkeeper, InfluxDB)
 └── mosquitto/               # MQTT Broker config
+└── pulsar-resources/        # Pulsar Functions
 ```
 
 ### 5.2 Service Stack Architecture
@@ -185,10 +187,10 @@ The `docker-compose.yaml` orchestrates a comprehensive industrial data platform.
 | **Zookeeper** | Metadata Store | *(Internal)* | Manages cluster coordination and configuration. |
 | **Bookkeeper** | Storage Engine | *(Internal)* | Handles persistent storage of messages (ledgers). |
 | **Mosquitto** | MQTT Broker | `1883` | The entry point for industrial IoT devices. |
-| **InfluxDB** | Time-Series DB | `8086` | Stores historical metric data processed by the bridge. |
+| **InfluxDB** | Time-Series DB | `8086` | Stores historical metric data processed by the broker. |
 | **Dekaf** | Management UI | `8090` | Web interface for managing Pulsar tenants and topics. |
 
-**Networking**: All services communicate via an internal bridge network (`pulsar-net`). Host ports are exposed to allow local development tools and the Bridge application to connect from the host machine.
+**Networking**: All services communicate via an internal bridge network (`pulsar-net`). Host ports are exposed to allow local development tools and the Broker application to connect from the host machine.
 
 ### 5.3 Installing Connectors (InfluxDB)
 To use Pulsar IO connectors (e.g., `pulsar-io-influxdb`), follow these steps:
@@ -206,7 +208,7 @@ To use Pulsar IO connectors (e.g., `pulsar-io-influxdb`), follow these steps:
     ```
     This file is used when creating the sink via `pulsar-admin` to map the topic data to the database.
 
-### 5.4 Running the System
+### 5.4 Running the Infrastructure
 1.  Navigate to the directory:
     ```bash
     cd Pulsar-Standard
@@ -310,7 +312,38 @@ pulsar-admin functions status --name basyxtest --tenant public --namespace defau
 
 ---
 
-## 7. Error Handling & Reliability
+## 7. Running the Broker
+
+The broker is the application that bridges the sources (MQTT/OPC UA) to the Pulsar backbone. It should be started after the infrastructure (Section 5.4) is up and running.
+
+### 7.1 Build the Docker Image
+From the root directory of the project, build the container image:
+```bash
+docker build -t pss-pass-broker:0.1 .
+```
+
+### 7.2 Run the Broker
+To run the broker and connect it to the Pulsar network:
+```bash
+docker run --rm \
+  --name pss-pass-broker \
+  --network pulsar-net \
+  pss-pass-broker:0.1
+```
+
+### 7.3 Configuration Override (Optional)
+If you want to use a different configuration file without rebuilding the image, you can mount it as a volume:
+```bash
+docker run --rm \
+  --name pss-pass-broker \
+  --network pulsar-net \
+  -v ${PWD}/custom-config.yaml:/app/src/config.yaml \
+  pss-pass-broker:0.1
+```
+
+---
+
+## 8. Error Handling & Reliability
 
 -   **Connection Loss**: Both MQTT and OPC UA sources have internal loops to attempt reconnection indefinitely (with backoff).
 -   **Publication Failure**: If Pulsar is down, the system retries 5 times (configurable).

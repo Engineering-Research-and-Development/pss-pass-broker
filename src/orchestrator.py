@@ -44,7 +44,7 @@ class Orchestrator:
         self._invalid_chars_re = re.compile(r"[^a-zA-Z0-9_-]")
 
     def run(self):
-        logger.info("Starting the Bridge...")
+        logger.info("Starting the Broker...")
 
         for dest in self._destinations:
             if not dest.connect():
@@ -68,7 +68,7 @@ class Orchestrator:
             process.start()
             logger.info(f"Started process for source: {source_id}")
 
-        logger.success("Bridge is running. All source processes started.")
+        logger.success("Broker is running. All source processes started.")
 
         try:
             self._message_loop()
@@ -109,7 +109,7 @@ class Orchestrator:
         return f"persistent://public/default/{normalized_topic}"
 
     def stop(self):
-        logger.info("Shutting down the bridge...")
+        logger.info("Shutting down the broker...")
         self._stop_event.set()
 
         for process in self._processes:
@@ -124,4 +124,4 @@ class Orchestrator:
         self._message_queue.close()
         self._message_queue.join_thread()
 
-        logger.success("Bridge shut down successfully.")
+        logger.success("Broker shut down successfully.")

@@ -3,9 +3,9 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mqtt_pulsar_bridge"
+name = "pss-pass-broker"
 version = "0.1.0"
-description = "A flexible bridge to forward messages from MQTT to Apache Pulsar."
+description = "A flexible middleware broker to forward messages from MQTT and OPC UA to Apache Pulsar."
 readme = "README.md"
 authors = [
     { name = "Luca Landolfo", email = "luca.landolfo@eng.it" },
@@ -37,4 +37,4 @@ members = [
 ]
 
 [project.scripts]
-bridge = "src.main:main"
+broker = "src.main:main"

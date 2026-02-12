@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 @dataclass(frozen=True)
 class Message:
     """
-    Represents a standardized, immutable message within the bridge.
+    Represents a standardized, immutable message within the broker.
     Encapsulating all data and metadata of an event.
     """
 

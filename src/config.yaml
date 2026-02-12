@@ -5,7 +5,7 @@ logging:
 sources:
   opcua:
     enabled: true
-    server_url: "opc.tcp://host.docker.internal:4840/OPCUA/SimulationServer" #test values
+    server_url: "opc.tcp://host.docker.internal:53530/OPCUA/SimulationServer" #test values
     nodes_to_subscribe:
       - "ns=3;i=1001"
       - "ns=3;i=1002"
@@ -15,7 +15,7 @@ sources:
     broker_host: "mosquitto"
     broker_port: 1883
     topic_subscribe: "test/data/#"
-    client_id: "bridge-id"
+    client_id: "broker-id"
     keepalive: 60
  
 destinations:
@@ -24,7 +24,7 @@ destinations:
     service_url: "pulsar://broker:6650"
     publishing:
       retry_attempts: 5
-      dlq_topic: "persistent://public/default/pulsar-bridge-dlq"
+      dlq_topic: "persistent://public/default/pulsar-broker-dlq"
 
 pipelines:
   - name: "mqtt_to_pulsar"

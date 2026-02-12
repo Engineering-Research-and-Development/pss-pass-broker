@@ -12,4 +12,4 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 ENV PATH="/app/.venv/bin:$PATH"
 
-CMD ["uv", "run", "bridge"]
+CMD ["uv", "run", "broker"]

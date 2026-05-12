@@ -74,7 +74,9 @@ def main():
                 destinations[name] = dest_factories[dest_type](dest_config)
                 logger.debug(f"Destination '{name}' created.")
             else:
-                logger.warning(f"Unknown destination type '{dest_type}' for destination '{name}' in config.")
+                logger.warning(
+                    f"Unknown destination type '{dest_type}' for destination '{name}' in config."
+                )
 
     pipelines: dict = {}
     pipeline_configs = config.get("pipelines", [])

@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Docker data
+Pulsar-Standard/data/
+
 # C extensions
 *.so
 

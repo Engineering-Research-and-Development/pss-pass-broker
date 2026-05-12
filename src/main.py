@@ -69,13 +69,14 @@ def main():
     destinations = {}
     for name, dest_config in config.get("destinations", {}).items():
         if dest_config.get("enabled"):
-            if name in dest_factories:
-                destinations[name] = dest_factories[name](dest_config)
+            dest_type = dest_config.get("type", name)
+            if dest_type in dest_factories:
+                destinations[name] = dest_factories[dest_type](dest_config)
                 logger.debug(f"Destination '{name}' created.")
             else:
-                logger.warning(f"Unknown destination type '{name}' in config.")
+                logger.warning(f"Unknown destination type '{dest_type}' for destination '{name}' in config.")
 
-    pipelines = {}
+    pipelines: dict = {}
     pipeline_configs = config.get("pipelines", [])
     if not pipeline_configs:
         logger.warning("No pipelines are defined in the configuration. Exiting.")
@@ -89,7 +90,7 @@ def main():
         dest_instance = destinations.get(dest_id)
 
         if source_instance and dest_instance:
-            pipelines[source_id] = dest_instance
+            pipelines.setdefault(source_id, []).append(dest_instance)
             logger.success(f"Pipeline configured: {source_id} -> {dest_id}")
         else:
             logger.error(
@@ -101,7 +102,7 @@ def main():
         logger.critical("No valid pipelines could be constructed. Exiting.")
         return
 
-    unique_destinations = list(set(pipelines.values()))
+    unique_destinations = list({dest for dests in pipelines.values() for dest in dests})
 
     broker = Orchestrator(sources, pipelines, unique_destinations)
     broker.run()

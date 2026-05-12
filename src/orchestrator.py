@@ -30,7 +30,7 @@ class Orchestrator:
     def __init__(
         self,
         sources: dict[str, ISource],
-        pipelines: dict[str, IDestination],
+        pipelines: dict[str, list[IDestination]],
         destinations: list[IDestination],
     ):
         self._sources = sources
@@ -89,18 +89,20 @@ class Orchestrator:
                 logger.exception("An error occurred in the main message loop.")
 
     def _forward_message(self, message: Message):
-        """Forwards a single message to its configured destination."""
-        destination = self._pipelines.get(message.source_id)
-        try:
-            destination_topic = self._determine_destination_topic(message)
-            logger.info(
-                f"Forwarding message from '{message.source_id}' to Pulsar topic '{destination_topic}'"
-            )
-            destination.publish(message, destination_topic)
-        except Exception:
-            logger.exception(
-                f"An unhandled error occurred while forwarding a message to {destination.__class__.__name__}."
-            )
+        """Forwards a single message to all configured destinations for its source."""
+        destinations = self._pipelines.get(message.source_id, [])
+        destination_topic = self._determine_destination_topic(message)
+        for destination in destinations:
+            try:
+                logger.info(
+                    f"Forwarding message from '{message.source_id}' to "
+                    f"'{destination.__class__.__name__}' on topic '{destination_topic}'"
+                )
+                destination.publish(message, destination_topic)
+            except Exception:
+                logger.exception(
+                    f"An unhandled error occurred while forwarding a message to {destination.__class__.__name__}."
+                )
 
     def _determine_destination_topic(self, message: Message):
         """Returns the corrected destination topic"""

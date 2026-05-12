@@ -22,6 +22,8 @@ class MqttSource(ISource):
         """Main process loop for the MQTT source."""
         self._message_queue = message_queue
 
+        self._connector.client.on_message = self._internal_on_message
+
         while not stop_event.is_set():
             client = self._connector.connect()
 
@@ -30,7 +32,6 @@ class MqttSource(ISource):
                 time.sleep(5)
                 continue
 
-            client.on_message = self._internal_on_message
             logger.info("MQTT source is connected and running.")
 
             while not stop_event.is_set():

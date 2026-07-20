@@ -2,7 +2,6 @@ import asyncio
 import socket
 import paho.mqtt.client as mqtt
 
-from abc import ABC, abstractmethod
 from asyncua import Client, ua
 from asyncua.common.subscription import (
     DataChangeNotificationHandler,
@@ -13,30 +12,11 @@ from multiprocessing.synchronize import Event
 from src.core.heartbeat import MqttHeartbeat, OpcuaHeartbeat
 
 
-class ISourceConnection(ABC):
-    """
-    Manages the connection lifecycle of a data source.
-    """
-
-    def __init__(self, config: dict):
-        self.config = config
-
-    @abstractmethod
-    def connect(self) -> mqtt.Client | None:
-        """Establishes the connection to the endpoint."""
-        raise NotImplementedError
-
-    @abstractmethod
-    def disconnect(self) -> None:
-        """Stops the component and cleans up resources."""
-        raise NotImplementedError
-
-
-class MqttSourceConnection(ISourceConnection):
+class MqttSourceConnection:
     """Handles the connection logic for an MQTT broker."""
 
     def __init__(self, config: dict):
-        super().__init__(config)
+        self.config = config
         self.client = mqtt.Client(
             mqtt.CallbackAPIVersion.VERSION2, client_id=self.config["client_id"]
         )

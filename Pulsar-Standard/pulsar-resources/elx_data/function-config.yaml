@@ -1,0 +1,11 @@
+tenant: "public"
+namespace: "default"
+name: "elxserviceevents"
+inputs:
+  - "elx-washer-service-events"
+#output: "elx_result"
+#logTopic: "persistent://public/default/elx-logs"
+runtime: GO
+autoAck: true
+# keep at 1: the dedupe read-then-append is not safe under concurrency
+parallelism: 1

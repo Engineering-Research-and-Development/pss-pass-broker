@@ -1,0 +1,2358 @@
+{
+  "assetAdministrationShells": [
+    {
+      "modelType": "AssetAdministrationShell",
+      "id": "https://electrolux.com/ids/washer/aas/1",
+      "idShort": "ElectroluxWasherAAS",
+      "assetInformation": {
+        "assetKind": "Instance",
+        "globalAssetId": "https://electrolux.com/ids/washer/33600132",
+        "specificAssetIds": [
+          {
+            "name": "serialNumber",
+            "value": "33600132"
+          },
+          {
+            "name": "manufacturerProductDesignation",
+            "value": "L6FBR144G"
+          }
+        ]
+      },
+      "submodels": [
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://electrolux.com/ids/washer/sm/nameplate/1"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://electrolux.com/ids/washer/sm/software-nameplate/1"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://electrolux.com/ids/washer/sm/technical-data/1"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://electrolux.com/ids/washer/sm/handover-documentation/1"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://electrolux.com/ids/washer/sm/carbon-footprint/1"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://electrolux.com/ids/washer/sm/predictive-maintenance/1"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://electrolux.com/ids/washer/sm/reliability/1"
+            }
+          ]
+        },
+        {
+          "type": "ModelReference",
+          "keys": [
+            {
+              "type": "Submodel",
+              "value": "https://electrolux.com/ids/washer/sm/service-data/1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "submodels": [
+    {
+      "modelType": "Submodel",
+      "kind": "Template",
+      "id": "https://electrolux.com/ids/washer/sm/nameplate/1",
+      "idShort": "Nameplate",
+      "administration": {
+        "version": "3",
+        "revision": "0",
+        "templateId": "https://admin-shell.io/IDTA/02006-3-0-1"
+      },
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "https://admin-shell.io/idta/nameplate/3/0/Nameplate"
+          }
+        ]
+      },
+      "submodelElements": [
+        {
+          "modelType": "Property",
+          "idShort": "URIOfTheProduct",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0112/2///61987#ABN590#002"
+              }
+            ]
+          },
+          "valueType": "xs:anyURI"
+        },
+        {
+          "modelType": "MultiLanguageProperty",
+          "idShort": "ManufacturerName",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0112/2///61987#ABA565#009"
+              }
+            ]
+          }
+        },
+        {
+          "modelType": "MultiLanguageProperty",
+          "idShort": "ManufacturerProductDesignation",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0112/2///61987#ABA567#009"
+              }
+            ]
+          }
+        },
+        {
+          "modelType": "MultiLanguageProperty",
+          "idShort": "ManufacturerProductRoot",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0112/2///61360_7#AAS011#001"
+              }
+            ]
+          }
+        },
+        {
+          "modelType": "MultiLanguageProperty",
+          "idShort": "ManufacturerProductFamily",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0112/2///61987#ABP464#002"
+              }
+            ]
+          }
+        },
+        {
+          "modelType": "Property",
+          "idShort": "ManufacturerProductType",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0112/2///61987#ABA300#008"
+              }
+            ]
+          },
+          "valueType": "xs:string"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "SerialNumber",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0112/2///61987#ABA951#009"
+              }
+            ]
+          },
+          "valueType": "xs:string"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "YearOfConstruction",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0112/2///61987#ABP000#002"
+              }
+            ]
+          },
+          "valueType": "xs:string"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "DateOfManufacture",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0112/2///61987#ABB757#007"
+              }
+            ]
+          },
+          "valueType": "xs:date"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "HardwareVersion",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0112/2///61987#ABA926#008"
+              }
+            ]
+          },
+          "valueType": "xs:string"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "FirmwareVersion",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0112/2///61987#ABA302#006"
+              }
+            ]
+          },
+          "valueType": "xs:string"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "SoftwareVersion",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0112/2///61987#ABA601#008"
+              }
+            ]
+          },
+          "valueType": "xs:string"
+        },
+        {
+          "modelType": "Property",
+          "idShort": "CountryOfOrigin",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0112/2///61987#ABP462#001"
+              }
+            ]
+          },
+          "valueType": "xs:string"
+        },
+        {
+          "modelType": "SubmodelElementCollection",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "https://admin-shell.io/zvei/nameplate/1/0/ContactInformations/AddressInformation"
+              }
+            ]
+          },
+          "value": [],
+          "idShort": "AddressInformation"
+        },
+        {
+          "modelType": "SubmodelElementList",
+          "idShort": "Markings",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0112/2///61360_7#AAS006#001"
+              }
+            ]
+          },
+          "typeValueListElement": "SubmodelElementCollection",
+          "value": []
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "kind": "Template",
+      "id": "https://electrolux.com/ids/washer/sm/software-nameplate/1",
+      "idShort": "SoftwareNameplate",
+      "administration": {
+        "version": "1",
+        "revision": "0",
+        "templateId": "https://admin-shell.io/IDTA/02007-1-0-1"
+      },
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "https://admin-shell.io/idta/SoftwareNameplate/1/0"
+          }
+        ]
+      },
+      "submodelElements": [
+        {
+          "modelType": "SubmodelElementCollection",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "https://admin-shell.io/idta/SoftwareNameplate/1/0/SoftwareNameplate/SoftwareNameplateType"
+              }
+            ]
+          },
+          "value": [
+            {
+              "modelType": "Property",
+              "idShort": "URIOfTheProduct",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "0173-1#02-AAY811#001"
+                  }
+                ]
+              },
+              "valueType": "xs:string"
+            },
+            {
+              "modelType": "MultiLanguageProperty",
+              "idShort": "ManufacturerName",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "0173-1#02-AAO677#002"
+                  }
+                ]
+              }
+            },
+            {
+              "modelType": "MultiLanguageProperty",
+              "idShort": "ManufacturerProductDesignation",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "0173-1#02-AAW338#001"
+                  }
+                ]
+              }
+            },
+            {
+              "modelType": "Property",
+              "idShort": "SoftwareType",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://admin-shell.io/idta/SoftwareNameplate/1/0/SoftwareNameplate/SoftwareNameplateType/SoftwareType"
+                  }
+                ]
+              },
+              "valueType": "xs:string"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "Version",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://admin-shell.io/idta/SoftwareNameplate/1/0/SoftwareNameplate/SoftwareNameplateType/Version"
+                  }
+                ]
+              },
+              "valueType": "xs:string"
+            },
+            {
+              "modelType": "MultiLanguageProperty",
+              "idShort": "VersionName",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://admin-shell.io/idta/SoftwareNameplate/1/0/SoftwareNameplate/SoftwareNameplateType/VersionName"
+                  }
+                ]
+              }
+            },
+            {
+              "modelType": "Property",
+              "idShort": "ReleaseDate",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://admin-shell.io/idta/SoftwareNameplate/1/0/SoftwareNameplate/SoftwareNameplateType/ReleaseDate"
+                  }
+                ]
+              },
+              "valueType": "xs:date"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "InstallationURI",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://admin-shell.io/idta/SoftwareNameplate/1/0/SoftwareNameplate/SoftwareNameplateType/InstallationURI"
+                  }
+                ]
+              },
+              "valueType": "xs:anyURI"
+            }
+          ],
+          "idShort": "SoftwareNameplateType"
+        },
+        {
+          "modelType": "SubmodelElementCollection",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "https://admin-shell.io/idta/SoftwareNameplate/1/0/SoftwareNameplate/SoftwareNameplateInstance"
+              }
+            ]
+          },
+          "value": [
+            {
+              "modelType": "Property",
+              "idShort": "SerialNumber",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "0173-1#02-AAM556#002"
+                  }
+                ]
+              },
+              "valueType": "xs:string"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "InstalledVersion",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://admin-shell.io/idta/SoftwareNameplate/1/0/SoftwareNameplate/SoftwareNameplateInstance/InstalledVersion"
+                  }
+                ]
+              },
+              "valueType": "xs:string"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "InstallationDate",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://admin-shell.io/idta/SoftwareNameplate/1/0/SoftwareNameplate/SoftwareNameplateInstance/InstallationDate"
+                  }
+                ]
+              },
+              "valueType": "xs:date"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "InstallationSource",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://admin-shell.io/idta/SoftwareNameplate/1/0/SoftwareNameplate/SoftwareNameplateInstance/InstallationSource"
+                  }
+                ]
+              },
+              "valueType": "xs:anyURI"
+            }
+          ],
+          "idShort": "SoftwareNameplateInstance"
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "kind": "Template",
+      "id": "https://electrolux.com/ids/washer/sm/technical-data/1",
+      "idShort": "TechnicalData",
+      "administration": {
+        "version": "2",
+        "revision": "0",
+        "templateId": "https://admin-shell.io/IDTA/02003-2-0-1"
+      },
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "0173-1#01-AHX837#002"
+          }
+        ]
+      },
+      "submodelElements": [
+        {
+          "modelType": "SubmodelElementCollection",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0173-1#02-ABK161#002/0173-1#01-AHX838#002"
+              }
+            ]
+          },
+          "value": [
+            {
+              "modelType": "Property",
+              "idShort": "ManufacturerName",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "0173-1#02-AAO677#004"
+                  }
+                ]
+              },
+              "valueType": "xs:string"
+            },
+            {
+              "modelType": "MultiLanguageProperty",
+              "idShort": "ManufacturerProductDesignation",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "0173-1#02-AAW338#003"
+                  }
+                ]
+              }
+            },
+            {
+              "modelType": "Property",
+              "idShort": "ManufacturerArticleNumber",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "0173-1#02-AAO676#005"
+                  }
+                ]
+              },
+              "valueType": "xs:string"
+            },
+            {
+              "modelType": "Property",
+              "idShort": "ManufacturerOrderCode",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "0173-1#02-AAO227#004"
+                  }
+                ]
+              },
+              "valueType": "xs:string"
+            }
+          ],
+          "idShort": "GeneralInformation"
+        },
+        {
+          "modelType": "SubmodelElementList",
+          "idShort": "ProductClassifications",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0173-1#02-ABK162#002"
+              }
+            ]
+          },
+          "typeValueListElement": "SubmodelElementCollection",
+          "value": [],
+          "semanticIdListElement": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0173-1#02-ABK162#002/0173-1#01-AHX839#002"
+              }
+            ]
+          }
+        },
+        {
+          "modelType": "SubmodelElementList",
+          "idShort": "TechnicalPropertyAreas",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0173-1#02-ABK163#002"
+              }
+            ]
+          },
+          "typeValueListElement": "SubmodelElementCollection",
+          "value": [
+            {
+              "modelType": "SubmodelElementCollection",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "0173-1#02-ABL358#002/0173-1#01-AHX773#002"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Energy-label technical properties (EU 2019/2014), sourced from EPREL."
+                }
+              ],
+              "value": [
+                {
+                  "modelType": "Property",
+                  "idShort": "EnergyEfficiencyClass",
+                  "valueType": "xs:string",
+                  "description": [
+                    {
+                      "language": "en",
+                      "text": "EU energy-label class A-G (EEIW). Source: EPREL."
+                    }
+                  ],
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-AAR804#011"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "EnergyConsumptionPer100Cycles",
+                  "valueType": "xs:double",
+                  "description": [
+                    {
+                      "language": "en",
+                      "text": "kWh per 100 cycles (eco 40-60). Source: EPREL."
+                    }
+                  ],
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-ABF698#004"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "WaterConsumptionPerCycle",
+                  "valueType": "xs:double",
+                  "description": [
+                    {
+                      "language": "en",
+                      "text": "Litres per cycle. Source: EPREL."
+                    }
+                  ],
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-ABF784#003"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "SpinDryingEfficiencyClass",
+                  "valueType": "xs:string",
+                  "description": [
+                    {
+                      "language": "en",
+                      "text": "Spin-drying class A-G. Source: EPREL."
+                    }
+                  ],
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-ABF740#003"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "MaxSpinSpeed",
+                  "valueType": "xs:int",
+                  "description": [
+                    {
+                      "language": "en",
+                      "text": "Maximum spin speed (rpm). Source: EPREL. provisional semanticId; real ECLASS IRDI TBD."
+                    }
+                  ],
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "https://electrolux.com/ids/washer/sm/technical-data/1/0/EnergyLabel/MaxSpinSpeed"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "RemainingMoistureContent",
+                  "valueType": "xs:double",
+                  "description": [
+                    {
+                      "language": "en",
+                      "text": "Remaining moisture content (percent). Source: EPREL."
+                    }
+                  ],
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-ABF713#004"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "ProgrammeDuration",
+                  "valueType": "xs:int",
+                  "description": [
+                    {
+                      "language": "en",
+                      "text": "Programme duration eco 40-60 (minutes). Source: EPREL."
+                    }
+                  ],
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-ABF672#003"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "NoiseEmissions",
+                  "valueType": "xs:string",
+                  "description": [
+                    {
+                      "language": "en",
+                      "text": "Airborne noise dB(A) + class A-D. Source: EPREL."
+                    }
+                  ],
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-ABF716#004"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "RatedCapacity",
+                  "valueType": "xs:double",
+                  "description": [
+                    {
+                      "language": "en",
+                      "text": "Rated capacity (kg). Source: EPREL."
+                    }
+                  ],
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-AAY742#005"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "semanticIdListElement": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0173-1#02-ABL358#002/0173-1#01-AHX773#002"
+              }
+            ]
+          }
+        },
+        {
+          "modelType": "SubmodelElementCollection",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0173-1#02-ABK164#002"
+              }
+            ]
+          },
+          "value": [
+            {
+              "modelType": "MultiLanguageProperty",
+              "idShort": "TextStatement",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "0173-1#02-ABK134#002"
+                  }
+                ]
+              }
+            },
+            {
+              "modelType": "Property",
+              "idShort": "ValidDate",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "0173-1#02-ABL775#001"
+                  }
+                ]
+              },
+              "valueType": "xs:date"
+            }
+          ],
+          "idShort": "FurtherInformation"
+        },
+        {
+          "modelType": "SubmodelElementCollection",
+          "idShort": "Circularity",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "https://electrolux.com/ids/washer/sm/technical-data/1/0/Circularity"
+              }
+            ]
+          },
+          "value": [
+            {
+              "modelType": "Property",
+              "idShort": "TechnicalLifetime",
+              "valueType": "xs:string",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "0173-1#02-BAF286#008"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Declared design lifetime (cycles / years). ESPR durability."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "ReparabilityScore",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/technical-data/1/0/Circularity/ReparabilityScore"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Repair-ease index (0-10). ESPR / FR index."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "SparePartsAvailability",
+              "valueType": "xs:string",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/technical-data/1/0/Circularity/SparePartsAvailability"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Years parts stay available and/or SKU list. ESPR."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "RecycledContent",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/technical-data/1/0/Circularity/RecycledContent"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Recycled content (percent). ESPR."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "Recyclability",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/technical-data/1/0/Circularity/Recyclability"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Recyclability (percent). ESPR."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "UpgradabilityIndex",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/technical-data/1/0/Circularity/UpgradabilityIndex"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Ease of hardware/software upgrade (index 0-10). ESPR. Custom."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "MaintenanceAccessibility",
+              "valueType": "xs:string",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/technical-data/1/0/Circularity/MaintenanceAccessibility"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Accessibility to proprietary hardware/software required for maintenance. ESPR. Custom."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "RatioOfSeparablePieces",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/technical-data/1/0/Circularity/RatioOfSeparablePieces"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Share of components separable for repair/recycling, percent (disassembly). ESPR. Custom."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "RatioOfStandardizedComponents",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/technical-data/1/0/Circularity/RatioOfStandardizedComponents"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Share of standardized (non-proprietary) components, percent. ESPR. Custom."
+                }
+              ]
+            }
+          ],
+          "description": [
+            {
+              "language": "en",
+              "text": "Provisional circularity collection (no published IDTA template yet); provisional project semanticIds. Lift to a standalone submodel when a standard is published."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "kind": "Template",
+      "id": "https://electrolux.com/ids/washer/sm/handover-documentation/1",
+      "idShort": "HandoverDocumentation",
+      "administration": {
+        "version": "2",
+        "revision": "0",
+        "templateId": "https://admin-shell.io/IDTA/02004-2-0-1"
+      },
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "0173-1#01-AHF578#003"
+          }
+        ]
+      },
+      "submodelElements": [
+        {
+          "modelType": "SubmodelElementList",
+          "idShort": "Documents",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0173-1#02-ABI500#003"
+              }
+            ]
+          },
+          "typeValueListElement": "SubmodelElementCollection",
+          "value": [
+            {
+              "modelType": "SubmodelElementCollection",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "0173-1#02-ABI500#003/0173-1#01-AHF579#003"
+                  }
+                ]
+              },
+              "value": [
+                {
+                  "modelType": "SubmodelElementList",
+                  "idShort": "DocumentIds",
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-ABI501#003"
+                      }
+                    ]
+                  },
+                  "typeValueListElement": "SubmodelElementCollection",
+                  "value": [],
+                  "semanticIdListElement": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-ABI501#003/0173-1#01-AHF580#003"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "modelType": "SubmodelElementList",
+                  "idShort": "DocumentClassifications",
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-ABI502#003"
+                      }
+                    ]
+                  },
+                  "typeValueListElement": "SubmodelElementCollection",
+                  "value": [],
+                  "semanticIdListElement": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-ABI502#003/0173-1#01-AHF581#003"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "modelType": "SubmodelElementList",
+                  "idShort": "DocumentVersions",
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-ABI503#003"
+                      }
+                    ]
+                  },
+                  "typeValueListElement": "SubmodelElementCollection",
+                  "value": [],
+                  "semanticIdListElement": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-ABI503#003/0173-1#01-AHF582#003"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "semanticIdListElement": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0173-1#02-ABI500#003/0173-1#01-AHF579#003"
+              }
+            ]
+          }
+        },
+        {
+          "modelType": "SubmodelElementList",
+          "idShort": "Entities",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "https://admin-shell.io/vdi/2770/1/0/EntitiesForDocumentation"
+              }
+            ]
+          },
+          "typeValueListElement": "Entity",
+          "value": []
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "kind": "Template",
+      "id": "https://electrolux.com/ids/washer/sm/carbon-footprint/1",
+      "idShort": "CarbonFootprint",
+      "administration": {
+        "version": "1",
+        "revision": "0",
+        "templateId": "https://admin-shell.io/IDTA/02023-1-0-1"
+      },
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "https://admin-shell.io/idta/CarbonFootprint/CarbonFootprint/1/0"
+          }
+        ]
+      },
+      "submodelElements": [
+        {
+          "modelType": "SubmodelElementList",
+          "idShort": "ProductCarbonFootprints",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "https://admin-shell.io/idta/CarbonFootprint/ProductCarbonFootprints/1/0"
+              }
+            ]
+          },
+          "typeValueListElement": "SubmodelElementCollection",
+          "value": [
+            {
+              "modelType": "SubmodelElementCollection",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://admin-shell.io/idta/CarbonFootprint/ProductCarbonFootprint/1/0"
+                  }
+                ]
+              },
+              "value": [
+                {
+                  "modelType": "SubmodelElementList",
+                  "idShort": "PcfCalculationMethods",
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "https://admin-shell.io/idta/CarbonFootprint/PcfCalculationMethods/1/0"
+                      }
+                    ]
+                  },
+                  "typeValueListElement": "Property",
+                  "value": [],
+                  "valueTypeListElement": "xs:string",
+                  "semanticIdListElement": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-ABG854#003"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "PcfCO2eq",
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-ABG855#003"
+                      }
+                    ]
+                  },
+                  "valueType": "xs:decimal"
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "ReferenceImpactUnitForCalculation",
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-ABG856#003"
+                      }
+                    ]
+                  },
+                  "valueType": "xs:string"
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "QuantityOfMeasureForCalculation",
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-ABG857#003"
+                      }
+                    ]
+                  },
+                  "valueType": "xs:double"
+                },
+                {
+                  "modelType": "SubmodelElementList",
+                  "idShort": "LifeCyclePhases",
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "https://admin-shell.io/idta/CarbonFootprint/LifeCyclePhases/1/0"
+                      }
+                    ]
+                  },
+                  "typeValueListElement": "Property",
+                  "value": [],
+                  "valueTypeListElement": "xs:string",
+                  "semanticIdListElement": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "0173-1#02-ABG858#003"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "modelType": "File",
+                  "idShort": "ExplanatoryStatement",
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "https://admin-shell.io/idta/CarbonFootprint/ExplanatoryStatement/1/0"
+                      }
+                    ]
+                  },
+                  "contentType": "application/pdf"
+                },
+                {
+                  "modelType": "SubmodelElementCollection",
+                  "idShort": "GoodsHandoverAddress",
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "https://admin-shell.io/zvei/nameplate/1/0/ContactInformations/AddressInformation"
+                      }
+                    ]
+                  },
+                  "value": []
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "PublicationDate",
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "https://admin-shell.io/idta/CarbonFootprint/PublicationDate/1/0"
+                      }
+                    ]
+                  },
+                  "valueType": "xs:dateTime"
+                },
+                {
+                  "modelType": "Property",
+                  "idShort": "ExpirationDate",
+                  "valueType": "xs:dateTime",
+                  "semanticId": {
+                    "type": "ExternalReference",
+                    "keys": [
+                      {
+                        "type": "GlobalReference",
+                        "value": "https://admin-shell.io/idta/CarbonFootprint/ExpirationDate/1/0"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "semanticIdListElement": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "https://admin-shell.io/idta/CarbonFootprint/ProductCarbonFootprint/1/0"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "kind": "Template",
+      "id": "https://electrolux.com/ids/washer/sm/predictive-maintenance/1",
+      "idShort": "PredictiveMaintenance",
+      "administration": {
+        "version": "1",
+        "revision": "0",
+        "templateId": "https://admin-shell.io/IDTA/02048-1-0"
+      },
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "https://admin-shell.io/idta/SubmodelTemplate/PredictiveMaintenance/1/0"
+          }
+        ]
+      },
+      "submodelElements": [
+        {
+          "modelType": "SubmodelElementCollection",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "https://admin-shell.io/idta/PredictiveMaintenance/RemainingUsefulLifePrediction/1/0"
+              }
+            ]
+          },
+          "value": [
+            {
+              "modelType": "Entity",
+              "idShort": "RemainingUsefulLifetime",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://admin-shell.io/idta/PredictiveMaintenance/RemainingUsefulLifetime/1/0"
+                  }
+                ]
+              },
+              "entityType": "CoManagedEntity",
+              "statements": []
+            },
+            {
+              "modelType": "Property",
+              "idShort": "RemainingUsfulLifeDateTime",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://admin-shell.io/idta/PredictiveMaintenance/RemainingUsfulLifeDateTime/1/0"
+                  }
+                ]
+              },
+              "valueType": "xs:dateTime"
+            },
+            {
+              "modelType": "Range",
+              "idShort": "ConfidenceInterval",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://admin-shell.io/idta/PredictiveMaintenance/ConfidenceInterval/1/0"
+                  }
+                ]
+              },
+              "valueType": "xs:double"
+            },
+            {
+              "modelType": "SubmodelElementCollection",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://admin-shell.io/idta/PredictiveMaintenance/PredictionModelInformation/1/0"
+                  }
+                ]
+              },
+              "value": [],
+              "idShort": "PredictionModelInformation"
+            }
+          ],
+          "idShort": "RemainingUsefulLifePrediction"
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "kind": "Template",
+      "id": "https://electrolux.com/ids/washer/sm/reliability/1",
+      "idShort": "Reliability",
+      "administration": {
+        "version": "1",
+        "revision": "0",
+        "templateId": "https://admin-shell.io/IDTA/02013-1-0-1"
+      },
+      "description": [
+        {
+          "language": "en",
+          "text": "Reliability characteristics per IDTA 02013-1-0 (IEC 62683), plus custom extensions (MTTR, failure rate, R(t), availability) needed for the PSS service-level KPIs."
+        }
+      ],
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "https://admin-shell.io/idta/iec62683/1/0/Reliability"
+          }
+        ]
+      },
+      "submodelElements": [
+        {
+          "modelType": "Property",
+          "idShort": "NumberOfReliabilitySets",
+          "valueType": "xs:int",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0112/2///62683#ACE006#001"
+              }
+            ]
+          },
+          "description": [
+            {
+              "language": "en",
+              "text": "Number of reliability characteristic sets."
+            }
+          ]
+        },
+        {
+          "modelType": "SubmodelElementCollection",
+          "idShort": "OperatingConditionsOfReliabilityCharacteristics",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0112/2///62683#ACG071#001"
+              }
+            ]
+          },
+          "value": [
+            {
+              "modelType": "Property",
+              "idShort": "UsefulLifeInNumberOfOperations",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "0112/2///62683#ACE055#001"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Useful life in wash cycles."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "UsefulLifeInTimeInterval",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "0112/2///62683#ACE054#001"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Useful life in hours."
+                }
+              ]
+            }
+          ],
+          "description": [
+            {
+              "language": "en",
+              "text": "Electrical operating-condition properties omitted: not applicable to a domestic washer."
+            }
+          ]
+        },
+        {
+          "modelType": "SubmodelElementCollection",
+          "idShort": "ReliabilityCharacteristics",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "0112/2///62683#ACG080#001"
+              }
+            ]
+          },
+          "value": [
+            {
+              "modelType": "Property",
+              "idShort": "MTTF",
+              "valueType": "xs:int",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "0112/2///62683#ACE061#001"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Mean operating time to failure."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "MTBF",
+              "valueType": "xs:int",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "0112/2///62683#ACE062#001"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Mean operating time between failures."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "B10",
+              "valueType": "xs:int",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://admin-shell.io/idta/Reliability/B10/1/0"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Operations at which 10% of units have failed."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modelType": "SubmodelElementCollection",
+          "idShort": "ReliabilityCharacteristicsExtension",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "https://electrolux.com/ids/washer/sm/reliability/1/0/ext"
+              }
+            ]
+          },
+          "value": [
+            {
+              "modelType": "Property",
+              "idShort": "MTTR",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/reliability/1/0/ext/MTTR"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Mean time to repair (hours). Custom - not in IDTA 02013."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "FailureRate",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/reliability/1/0/ext/FailureRate"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Failure rate lambda (1/h). Custom."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "ReliabilityFunction",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/reliability/1/0/ext/ReliabilityFunction"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Survival probability R(t) at a reference time (0-1). Custom - derived."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "Availability",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/reliability/1/0/ext/Availability"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "A = MTBF/(MTBF+MTTR), percent. Custom - derived."
+                }
+              ]
+            }
+          ],
+          "description": [
+            {
+              "language": "en",
+              "text": "Custom extensions beyond IDTA 02013, under the electrolux project namespace."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "modelType": "Submodel",
+      "kind": "Template",
+      "id": "https://electrolux.com/ids/washer/sm/service-data/1",
+      "idShort": "ServiceData",
+      "administration": {
+        "version": "1",
+        "revision": "0"
+      },
+      "description": [
+        {
+          "language": "en",
+          "text": "Custom submodel for the Product-Service-System (PSS) offered around the asset: service configuration, operational health data, and a maintenance-request operation. No published IDTA template covers PSS, so semanticIds are project-defined under the electrolux/washer namespace."
+        }
+      ],
+      "semanticId": {
+        "type": "ExternalReference",
+        "keys": [
+          {
+            "type": "GlobalReference",
+            "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0"
+          }
+        ]
+      },
+      "submodelElements": [
+        {
+          "modelType": "SubmodelElementCollection",
+          "idShort": "ServiceConfiguration",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceConfiguration"
+              }
+            ]
+          },
+          "value": [
+            {
+              "modelType": "Property",
+              "idShort": "ServiceType",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceConfiguration/ServiceType"
+                  }
+                ]
+              },
+              "valueType": "xs:string"
+            },
+            {
+              "modelType": "File",
+              "idShort": "ServiceLevelAgreement",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceConfiguration/ServiceLevelAgreement"
+                  }
+                ]
+              },
+              "contentType": "application/pdf"
+            }
+          ]
+        },
+        {
+          "modelType": "SubmodelElementCollection",
+          "idShort": "ServiceOperationalData",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData"
+              }
+            ]
+          },
+          "value": [
+            {
+              "modelType": "Property",
+              "idShort": "HealthIndex",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData/HealthIndex"
+                  }
+                ]
+              },
+              "valueType": "xs:double",
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Current predictive health score of the asset (0-100)."
+                }
+              ]
+            },
+            {
+              "modelType": "ReferenceElement",
+              "idShort": "TelemetryDataLink",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData/TelemetryDataLink"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Reference to a time-series submodel holding raw IoT data, populated at instance level."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "TotalCyclesRun",
+              "valueType": "xs:long",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData/TotalCyclesRun"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Lifetime wash-cycle counter."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "InUseEnergyEfficiency",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData/InUseEnergyEfficiency"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Measured energy per cycle vs rated (kWh/cycle)."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "RefurbishmentPotential",
+              "valueType": "xs:string",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData/RefurbishmentPotential"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Residual value / refurbish-worthiness (currency or score)."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "UsageIntensity",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData/UsageIntensity"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Cycles per week; normalises RUL and energy metrics."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "SLAComplianceRate",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData/SLAComplianceRate"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "SLA compliance (percent)."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "FirstTimeFixRate",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData/FirstTimeFixRate"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "First-time fix rate (percent)."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "ServiceResponseTime",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData/ServiceResponseTime"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Mean time to acknowledge / respond (hours)."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "ServiceInterventions",
+              "valueType": "xs:int",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData/ServiceInterventions"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Number of service interventions (count)."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "CostPerCycle",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData/CostPerCycle"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Total cost of ownership per cycle (currency)."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "CustomerSatisfaction",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData/CustomerSatisfaction"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Customer satisfaction / NPS score."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "ActualOperatingTime",
+              "valueType": "xs:double",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData/ActualOperatingTime"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Total accumulated machine operating time (hours); complements the cycle counter. Custom - no standard IRDI."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "WarrantyPeriod",
+              "valueType": "xs:string",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData/WarrantyPeriod"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Commercial warranty coverage period / remaining. Custom."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "GuaranteedProductLifetime",
+              "valueType": "xs:string",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData/GuaranteedProductLifetime"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Legally guaranteed minimum lifespan (distinct from declared technical lifetime; ESPR). Custom."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "MaintenanceLog",
+              "valueType": "xs:anyURI",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData/MaintenanceLog"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Reference to maintenance and safety-check records gathered under ELX-4. Custom."
+                }
+              ]
+            },
+            {
+              "modelType": "Property",
+              "idShort": "EligibleProductTypes",
+              "valueType": "xs:string",
+              "semanticId": {
+                "type": "ExternalReference",
+                "keys": [
+                  {
+                    "type": "GlobalReference",
+                    "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceOperationalData/EligibleProductTypes"
+                  }
+                ]
+              },
+              "description": [
+                {
+                  "language": "en",
+                  "text": "Which product types/units are eligible for the PSS offer. Custom."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "modelType": "SubmodelElementList",
+          "idShort": "ServiceHistory",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceHistory"
+              }
+            ]
+          },
+          "typeValueListElement": "SubmodelElementCollection",
+          "semanticIdListElement": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/ServiceHistory/ServiceEvent"
+              }
+            ]
+          },
+          "description": [
+            {
+              "language": "en",
+              "text": "Chronological list of field service interventions on this asset instance. One entry per service call. Custom: no published IDTA template covers field service records, so semanticIds are project-defined under the electrolux/washer namespace. Source: Electrolux service database (field repair extract)."
+            }
+          ],
+          "value": []
+        },
+        {
+          "modelType": "Operation",
+          "idShort": "RequestMaintenanceTicket",
+          "semanticId": {
+            "type": "ExternalReference",
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "value": "https://electrolux.com/ids/washer/sm/ServiceData/1/0/RequestMaintenanceTicket"
+              }
+            ]
+          },
+          "inputVariables": [
+            {
+              "value": {
+                "modelType": "Property",
+                "idShort": "FaultDescription",
+                "valueType": "xs:string"
+              }
+            },
+            {
+              "value": {
+                "modelType": "Property",
+                "idShort": "SeverityLevel",
+                "valueType": "xs:integer"
+              }
+            }
+          ],
+          "outputVariables": [
+            {
+              "value": {
+                "modelType": "Property",
+                "idShort": "TicketID",
+                "valueType": "xs:string"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "conceptDescriptions": []
+}
